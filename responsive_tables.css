@@ -1,0 +1,49 @@
+/* adapted from http://css-tricks.com/responsive-data-tables */
+
+
+/*
+Max width before this PARTICULAR table gets nasty
+This query will take effect for any screen smaller than 760px
+and also iPads specifically.
+*/
+@media only screen and (max-width: 768px), (min-device-width: 768px) and (max-device-width: 1024px) {
+
+  /* Force table to not be like tables anymore */
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  /* Hide table headers (but not display: none;, for accessibility) */
+  .table thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  .table tr {
+    border: 1px solid #ccc;
+  }
+
+  .table td {
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+  }
+  .table .responsive-title {
+    display: inline-block;
+    font-weight: bold;
+    width: 30%;
+    margin-right: 6px;
+  }
+}
+
+
+@media
+only screen and (max-width: 450px) {
+
+  .table .responsive-title {
+    display: block;
+    margin-right: 0;
+  }
+}

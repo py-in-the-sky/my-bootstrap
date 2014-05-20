@@ -1,0 +1,171 @@
+﻿/* from https://gist.github.com/DanWahlin/8077397 */
+/* see: http://www.yearofmoo.com/2013/04/animation-in-angularjs.html */
+
+
+/* slide animation
+______________________*/
+.slide-animation.ng-enter, .slide-animation.ng-leave {
+-webkit-transition: 0.3s linear all;
+-moz-transition: 0.3s linear all;
+-o-transition: 0.3s linear all;
+transition: 0.3s linear all;
+position: relative;
+height: 1000px;
+}
+.slide-animation.ng-enter {
+z-index:100;
+/*left:100px;*/
+opacity:0;
+}
+.slide-animation.ng-enter.ng-enter-active {
+left:0;
+opacity:1;
+}
+.slide-animation.ng-leave {
+z-index:101;
+opacity:1;
+left:0;
+}
+.slide-animation.ng-leave.ng-leave-active {
+left:-100px;
+opacity:0;
+}
+
+/* repeat animation
+______________________*/
+.repeat-animation.ng-enter,
+.repeat-animation.ng-leave,
+.repeat-animation.ng-move {
+-webkit-transition: 0.3s linear all;
+-moz-transition: 0.3s linear all;
+-o-transition: 0.3s linear all;
+transition: 0.3s linear all;
+position:relative;
+}
+.repeat-animation.ng-enter {
+left:10px;
+opacity:0;
+}
+.repeat-animation.ng-enter.ng-enter-active {
+left:0;
+opacity:1;
+}
+.repeat-animation.ng-leave {
+left:10px;
+opacity:1;
+}
+.repeat-animation.ng-leave.ng-leave-active {
+left:-10px;
+opacity:0;
+}
+.repeat-animation.ng-move {
+opacity:0.5;
+}
+.repeat-animation.ng-move.ng-move-active {
+opacity:1;
+}
+
+/* list animation
+______________________*/
+.list-animation {
+    position:relative;
+}
+.list-animation.ng-enter-stagger,
+.list-animation.ng-move-stagger {
+    /* notice how we're using animation instead of transition here */
+    -webkit-animation-delay:0.2s;
+    animation-delay:0.2s;
+
+    /* yes we still need to do this too */
+    -webkit-animation-duration:0;
+    animation-duration:0;
+}
+.list-animation.ng-move,
+.list-animation.ng-enter {
+    opacity:0;
+    -webkit-animation:enter_animation 0.2s;
+    animation:enter_animation 0.2s;
+}
+@-webkit-keyframes enter_animation {
+  from { opacity:0; }
+  to { opacity:1; }
+}
+@keyframes enter_animation {
+  from { opacity:0; }
+  to { opacity:1; }
+}
+
+/* view-frame animation
+______________________*/
+.view-container {
+    position: relative;
+}
+.view-frame.ng-enter, .view-frame.ng-leave {
+    position: absolute;
+    /* to fit seemlessly with container-fluid */
+    /* also had to hide overflow-x on the body element in main.css */
+    width: 100%;
+    padding-right: 30px;
+}
+.view-frame.ng-enter {
+    -webkit-animation: 0.4s fade-in;
+    -moz-animation: 0.4s fade-in;
+    -o-animation: 0.4s fade-in;
+    animation: 0.4s fade-in;
+    z-index: 100;
+}
+.view-frame.ng-leave {
+    -webkit-animation: 0.3s fade-out;
+    -moz-animation: 0.3s fade-out;
+    -o-animation: 0.3s fade-out;
+    animation: 0.3s fade-out;
+    z-index: 99;
+}
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@-webkit-keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@-moz-keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+@-webkit-keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+@-moz-keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}

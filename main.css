@@ -1,0 +1,148 @@
+﻿/* styling borrowed from the Bootstrap examples: http://getbootstrap.com/examples */
+
+/* For using AngularJS and Angular-UI
+-------------------------------------------------- */
+.nav, .pagination, .carousel, .panel-title a {
+  cursor: pointer;
+}
+/* ng-cloak */
+/* ng-cloak directive will hide element until curly brackets are evaluated and rendered by AngularJS */
+/* this css styling will keep the ng-cloak-labeled elements hidden until AngularJS takes over */
+/* taken from http://docs.angularjs.org/api/ng/directive/ngCloak */
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+/* My classes
+-------------------------------------------------- */
+.gray {
+  color: gray;
+}
+.red {
+  color: red;
+}
+.navy {
+  color: navy;
+}
+.clickable {
+  cursor: pointer;
+  cursor: hand;  /* some browsers call it 'hand' */
+}
+.breadcrumb {
+  background-color: inherit;
+}
+.breadcrumb > li {
+  opacity: 0.7;
+}
+.breadcrumb > li:hover {
+  opacity: 1;
+}
+.caret.caret-up {
+  /* see : http://stackoverflow.com/questions/20760047/bootstrap-caret-with-upside-down */
+  border-top-width: 0;
+  border-bottom: 4px solid;
+}
+.no-text-highlight {
+  /*prevent element from being highlighted on double click, dragging mouse, etc.*/
+  /*see: http://css-tricks.com/almanac/properties/u/user-select/*/
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+
+  /* No support for these yet, use at own risk */
+  -o-user-select: none;
+  user-select: none;
+}
+
+/* Global elements
+-------------------------------------------------- */
+body {
+  padding-top: 50px;  /* Move down content because we have a fixed navbar that is 50px tall */
+  padding-bottom: 20px;
+  margin-bottom: 60px;  /* Margin bottom by footer height */
+  background-color: floralwhite;
+  overflow-x: hidden;  /* to keep view-frame transitions clean; see animations.css */
+  /*overflow-y: scroll;*/
+  /*min-height: 2000px;*/
+}
+.table th {
+  background: #303030;  /* same as navbar-inverse */
+  color: white;
+}
+.table .responsive-title {
+  display: none;
+}
+
+
+/* Navbar
+-------------------------------------------------- */
+.navbar-inverse {
+  background-color: #303030;
+}
+/*.navbar {
+  margin-bottom: 20px;
+}*/
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #CCD9E9;
+}
+
+/* Global add-ons
+-------------------------------------------------- */
+
+/*.sub-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}*/
+
+
+/* filters
+-------------------------------------------------- */
+
+.filters {
+  text-align: center;
+  margin: 0 3px;
+}
+.filters .form-group {
+  margin: 3px 0;
+}
+@media only screen and (max-width: 768px) {
+  .filters .form-group {
+    text-align: left;
+  }
+}
+.filter-label, .filters .btn-group {
+  display: none;
+}
+@media only screen and (min-width: 768px) {
+  .filter-label, .filters .btn-group {
+    display: inline-block;
+  }
+}
+
+/* Main content
+-------------------------------------------------- */
+
+.main {
+  padding: 20px;
+}
+/*@media (min-width: 768px) {
+  .main {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}*/
+.main .page-header {
+  margin-top: 0;
+}
